@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="w-full h-12 flex justify-evenly text-pink-600 items-center">
+      <a href="/home" class="text-pink-600 text-2xl">RBAC</a>
+      <ul class="w-[400px] flex justify-between text-pink-500 items-center">
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/home">Home </a>
+        </li>
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/user/profile">Profile </a>
+        </li>
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/admin/user">Users</a>
+        </li>
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/auth/login">Login</a>
+        </li>
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/auth/register">Register</a>
+        </li>
+        <li class="hover:bg-rose-50 px-2 py-1 rounded-md text-lg">
+          <a href="/auth/logout">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

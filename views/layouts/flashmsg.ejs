@@ -1,0 +1,24 @@
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      const flashMessage = document.getElementById("flashmessage");
+      if (flashMessage) {
+        flashMessage.style.display = "none";
+      }
+    }, 3000);
+  };
+</script>
+<% if (locals.messages) { %>
+<div id="flashmessage" class="messages max-w-4xl mx-auto px-4">
+  <ul class="space-y-2">
+    <% Object.keys(messages).forEach((key) => { %> <%
+    messages[key].forEach((message) => { %>
+    <li
+      class="<%= key === 'error' ? 'bg-red-100 text-red-700 border-l-4 border-red-500' : '' %> <%= key === 'success' ? 'bg-green-100 text-green-700 border-l-4 border-green-500' : '' %> <%= key === 'info' ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-500' : '' %> <%= key === 'warning' ? 'bg-yellow-100 text-yellow-700 border-l-4 border-yellow-500' : '' %> p-4 rounded-lg shadow-md"
+    >
+      <%= message %>
+    </li>
+    <% }) %> <% }) %>
+  </ul>
+</div>
+<% } %>

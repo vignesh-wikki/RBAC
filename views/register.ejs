@@ -1,0 +1,52 @@
+
+<%- include('layouts/navbar') %>
+ <center><%- include('layouts/flashmsg') %></center>
+
+<div class="flex items-center justify-center h-screen">
+      <div class="w-[400px] h-[450px] p-4 text-center  rounded-3xl border-2 p-5">
+       <form action="/auth/register"  method="post">
+        <table class="mt-8">
+            
+            <tr>
+                <center>
+                 <p class="text-pink-600 text-2xl font-bold ">Register</p>
+                </center>
+            </tr>
+                <tr>
+                <td >
+                <label class="text-xl  ">Email</label>
+                </td>
+                
+                 <td>
+                <input  type="email" name="email" required class="mb-5 ms-5 border border-gray-300 p-2 rounded-md outline-none " />
+                </td>
+              </tr>
+              <tr>
+              </tr>
+                
+               
+      
+            
+            <tr>
+                <td> 
+                <label class="text-xl ps-5 ">Password</label>
+                </td>
+                <td>            
+                <input type="password" name="password" class="ms-5 border border-gray-300 p-2 rounded-md outline-none " required />
+                </td>
+            </tr>
+            <tr>
+                <td> 
+                <label class="text-xl text-center">conform Password</label>
+                </td>
+                <td>            
+                <input type="password" name="confirmpassword" class="mt-5 ms-5 border border-gray-300 p-2 rounded-md outline-none " required />
+                </td>
+            </tr>
+            
+        </table>
+        <center><button type="submit" class="text-white text-xl mt-14 bg-pink-600 px-8 py-1  rounded-lg">Register</button></center>
+       <p class="pt-4">Do you have a account? <a href="/auth/login" class="text-pink-400">Login</a></p>      </div>
+        </form>
+      </div>
+    </div>
