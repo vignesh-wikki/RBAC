@@ -29,11 +29,12 @@ cd rbac-project
   - `SESSION_SECRET`: Secret for securing user sessions.
   - `ADMIN_EMAIL`: The email address for the admin user.
   - `JWT_SECRET`: Secret for signing JSON Web Tokens used in authentication.
-```
 
-### Run the project
+
+### 3. Run the project
 
 ```
 npm start
 
 ```
+
