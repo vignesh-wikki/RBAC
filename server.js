@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-
 const session = require("express-session");
 const passport = require("passport");
 const connectFlash = require("connect-flash");
@@ -52,3 +51,5 @@ mongoose
   .catch((err) => {
     console.log("error in connecting DB");
   });
+
+module.exports = app;
