@@ -46,7 +46,7 @@ router.post("/login", validator(), async (req, res) => {
       "error",
       errors.array().map((error) => error.msg)
     );
-    return res.redirect("/auth/login"); // Redirect back to login page to show the flash messages
+    return res.redirect("/auth/login"); 
   }
 
   try {
@@ -55,13 +55,13 @@ router.post("/login", validator(), async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) {
       req.flash("error", "Invalid Email");
-      return res.redirect("/auth/login"); // Redirect back to login page to show the flash message
+      return res.redirect("/auth/login"); 
     }
 
     const isMatch = await user.isValidPassword(password);
     if (!isMatch) {
       req.flash("error", "Invalid Password");
-      return res.redirect("/auth/login"); // Redirect back to login page to show the flash message
+      return res.redirect("/auth/login"); 
     }
 
     const payload = {
@@ -94,9 +94,13 @@ router.get("/login", (req, res, next) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.cookie("token", "", { httpOnly: true, expires: new Date(0) });
-  req.flash('success','Logged out')
-  res.redirect("/auth/login");
+  if(req.cookies.token){
+    res.cookie("token", "", { httpOnly: true, expires: new Date(0) });
+    req.flash('success','Logged out')
+  return res.redirect("/auth/login");
+  }
+  req.flash("warning","You'r not Loggedin Please Login");
+  return res.redirect('/auth/login');
 });
 
 module.exports = router;

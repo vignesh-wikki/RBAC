@@ -18,7 +18,7 @@ router.get("/profile", (req, res, next) => {
   if (verifyToken.role == "MODERATOR" || verifyToken.role == "ADMIN") {
     return res.render("profile", { user });
   }
-  req.flash('info',"Only Signed user and Moderator access this Page");
+  req.flash('warning',"Moderator access this Page");
   return res.redirect("/home");
 });
 
