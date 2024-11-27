@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const morgan = require("morgan");
+
 const session = require("express-session");
 const passport = require("passport");
 const connectFlash = require("connect-flash");
@@ -10,8 +10,6 @@ const ejs = require("ejs");
 require("dotenv").config();
 
 app.use(cookieParser());
-
-app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,13 +35,9 @@ app.use("/", require("./routes/auth.index"));
 
 app.use("/auth", require("./routes/auth.route"));
 
-app.use('/admin',require('./routes/admin.user'));
+app.use("/admin", require("./routes/admin.user"));
 
-app.use('/user',require('./routes/auth.profile'));
-
-
-
-
+app.use("/user", require("./routes/auth.profile"));
 
 mongoose
   .connect(process.env.MONGODB_URI, {
